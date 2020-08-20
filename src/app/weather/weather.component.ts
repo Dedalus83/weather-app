@@ -13,8 +13,6 @@ export class WeatherComponent implements OnInit {
   private static DEFAULT_CITY = "toulon";
 
   public weatherSearchForm: FormGroup;
-
-  public temperature = "";
   public weather: any = null;
   public citiesList: any[] = [];
   public citySearchControl = new FormControl();
