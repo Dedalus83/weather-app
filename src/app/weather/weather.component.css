@@ -1,0 +1,151 @@
+.temperature {
+    margin-top: 50px;
+    font-size: 9em;
+    margin-bottom: 50px;
+}
+
+img {
+    width: 100px;
+}
+
+.city {
+    font-size: 3em;
+    margin-top: 20px;
+}
+
+.date {
+    margin-top: -20px;
+    font-size: 1em;
+}
+
+.temp-max {
+    text-align: end;
+}
+
+.temp-min {
+    text-align: start;
+}
+
+.text-center {
+    color: white;
+    font-size: 1.2em;
+}
+
+.space {
+    margin-left: 5em;
+}
+
+*,
+ ::after,
+ ::before {
+    box-sizing: content-box;
+}
+
+.img-thumbnail {
+    padding: .25rem;
+    background: unset;
+    border-radius: 2px solid #616eb8 .25rem;
+    max-width: 90%;
+    height: auto;
+    box-shadow: 5px 10px 5px rgb(87, 83, 83);
+    margin-bottom: 3em;
+    margin-left: 2.5em;
+    margin-right: 1em;
+    min-width: 30%;
+}
+
+.border-main {
+    border-radius: 2px solid white;
+    box-shadow: 5px 10px 5px rgb(87, 83, 83);
+}
+
+.hourly {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height: auto;
+}
+
+.row {
+    flex-wrap: unset;
+}
+
+.hour-by-hour {
+    border-radius: 2px solid white;
+    box-shadow: 5px 10px 5px rgb(87, 83, 83);
+}
+
+.img-thumbnail-extend {
+    padding: .25rem;
+    background: unset;
+    border-radius: 2px solid #ffffff .25rem;
+    border: 1px solid #dee2e6;
+    max-width: 70%;
+    height: auto;
+    box-shadow: 5px 10px 5px rgb(87, 83, 83);
+    margin-bottom: 3em;
+    margin-left: 1em;
+}
+
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+ ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+ ::-webkit-scrollbar-thumb {
+    background: rgb(33, 66, 214);
+    border-radius: 10px;
+}
+
+H2 {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+input {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    background: unset;
+    color: white;
+}
+
+::placeholder {
+    color: white;
+}
+
+.next-days {
+    display: flex;
+    margin-right: -15px;
+}
+
+.icon {
+    width: 3em;
+    height: auto;
+    margin-bottom: 1em;
+}
+
+.icon-hydro {
+    width: 5em;
+    height: auto;
+    margin-bottom: 1.5em;
+}
+
+.image-hourly {
+    width: 60px;
+}
+
+.mat-divider {
+    border-top-color: rgb(26, 25, 25 / 30%);
+}
+
+.mat-divider {
+    display: block;
+    border-top-width: 5px;
+    border-top-style: solid;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    align-items: center;
+}

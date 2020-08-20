@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: "Personal-font";
+    src: url("src/assets/font/HelveticaNeue-Light.otf") format("opentype"),
+   }
+
+body{
+    background-image: url("src/assets/img/sky.jpg");
+    background-color: black;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position:center ;
+    color: white;
+    font-family: "personal-font";
+}
+
+html, body{ 
+    height: 100%; 
+}
+
+body{ 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+
+.mat-tab-label .mat-tab-label-content{
+    color:white;
+    font-size: 1.5em;
+}
+

@@ -1,0 +1,88 @@
+<div class="container text-center ">
+
+    <!-- ------------------------SELECTION DES VILLES--------------------------- -->
+
+    <form (submit)="prepareWeather()">
+
+        <input type="text" placeholder="Choisissez une ville" [formControl]="citySearchControl" [matAutocomplete]="auto" />
+        <mat-autocomplete #auto="matAutocomplete" autoActiveFirstOption="true" [displayWith]="displayFn">
+            <mat-option *ngFor="let city of filteredCity | async" [value]="city">
+                {{ city.name }}
+            </mat-option>
+        </mat-autocomplete>
+    </form>
+    <mat-divider></mat-divider>
+
+    <!-- -------------------------METEO JOUR ACTUEL---------------------------- -->
+
+    <div class="border-main img-thumbnail">
+        <p class="temperature">{{ weather.current_condition.tmp }}°C</p>
+        <img src="{{ weather.current_condition.icon }}" alt="image représentant le temps qu'il fait actuellement" />
+        <p>{{ weather.current_condition.condition_key }}</p>
+        <div class="row">
+            <p class="col-md temp-max">{{ weather.fcst_day_0.tmax }}°C</p>
+            <p class="col-md temp-min">{{ weather.fcst_day_0.tmin }}°C</p>
+        </div>
+        <p class="city">{{ weather.city_info.name }}</p>
+        <p class="date">{{ weather.current_condition.date }}</p>
+    </div>
+
+    <!-- ------------------------HEURE PAR HEURE-------------------------------- -->
+
+    <mat-divider></mat-divider>
+    <h2>Votre météo heure par heure</h2>
+    <div class="row hourly">
+        <div class="img-thumbnail hour-by-hour" *ngFor="let item of weather.fcst_day_0.hourlyData">
+            <p>{{item.hour}}</p><br>
+            <img class="image-hourly" src="{{ item.ICON }}" alt="image représentant le temps qu'il fait actuellement" />
+            <p>{{item.CONDITION}}</p><br>
+            <p>{{item.TMP2m}}°C</p><br>
+        </div>
+    </div>
+
+    <!-- -----------------------TROIS PROCHAINS JOURS---------------------------- -->
+
+    <mat-divider></mat-divider>
+    <h2>Vos prévisions des trois prochains jours</h2>
+    <mat-tab-group animationDuration="2000ms">
+        <mat-tab label="{{ weather.fcst_day_1.day_long }}">
+            <div class="col-md space img-thumbnail">
+                <p>{{ weather.fcst_day_1.condition }}</p>
+                <img class="col" src="{{ weather.fcst_day_1.icon }}" alt="image représentant le temps qu'il fera dans les prochains jours" />
+                <p>{{ weather.fcst_day_1.tmax }}°C</p>
+            </div>
+        </mat-tab>
+        <mat-tab label="{{ weather.fcst_day_2.day_long }}">
+            <div class="col-md space img-thumbnail">
+                <p>{{ weather.fcst_day_2.condition }}</p>
+                <img src="{{ weather.fcst_day_2.icon }}" alt="image représentant le temps qu'il fera dans les prochains jours" />
+                <p>{{ weather.fcst_day_2.tmax }}°C</p>
+            </div>
+        </mat-tab>
+        <mat-tab label="{{ weather.fcst_day_3.day_long }}">
+            <div class="col-md space img-thumbnail">
+                <p>{{ weather.fcst_day_3.condition }}</p>
+                <img src="{{ weather.fcst_day_3.icon }}" alt="image représentant le temps qu'il fera dans les prochains jours" />
+                <p>{{ weather.fcst_day_3.tmax }}°C</p>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+
+
+    <!-- ----------------- METEO ETENDU (Vitesse du vent / Hydrométrie / temperature moyenne etc...)-------------------- -->
+
+    <mat-divider></mat-divider>
+    <h2>Informations étendues</h2>
+    <div class="row">
+        <div class="col-md img-thumbnail-extend">
+            <img class="icon" src="./assets/img/eolienne.gif" alt="éolienne représentant la vitesse du vent" />
+            <p>Direction du vent: {{ weather.current_condition.wnd_dir }}</p>
+            <p>Vitesse du vent: {{ weather.current_condition.wnd_spd }}</p>
+        </div>
+        <div class="col-md img-thumbnail-extend">
+            <img class="icon-hydro" src="./assets/img/goutte.gif" alt="goutte d'eau représentant le taux d'humidité" />
+            <p>Humidité: {{ weather.current_condition.humidity }}</p>
+        </div>
+    </div>
+
+</div>
