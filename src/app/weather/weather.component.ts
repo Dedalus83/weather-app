@@ -25,11 +25,10 @@ export class WeatherComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.listCities();
+    this.preparelistCities();
     this.prepareWeather();
     this.filteredCity = this.citySearchControl.valueChanges.pipe(
       startWith(''),
-      //map(value => this._filter(value)),
       map(value => typeof value === 'string' ? value : value.name),
       map(name => name ? this._filter(name) : [])
     );
@@ -43,7 +42,6 @@ export class WeatherComponent implements OnInit {
     } else {
       cityName = this.citySearchControl.value.name;
     }
-
     fetch("https://www.prevision-meteo.ch/services/json/" + cityName)
       .then(res => res.json())
       .then((data: IWeatherData) => this.weather = this.transformData(data));
@@ -70,6 +68,16 @@ export class WeatherComponent implements OnInit {
     })
   }
 
+  public preparelistCities() {
+    var cors_api_host = 'cors-anywhere.herokuapp.com';
+    var cors_api_url = 'https://' + cors_api_host + '/http://www.prevision-meteo.ch/services/json/list-cities';
+    fetch(cors_api_url)
+      .then(res => res.json())
+      .then(data => {
+        this.citiesList = Object.values(data);
+      })
+  };
+
   private _filter(value: string): string[] {
     if (!value || value.length < 3) {
       return [];
@@ -86,17 +94,6 @@ export class WeatherComponent implements OnInit {
     return citiesList && citiesList.name ? citiesList.name : '';
   }
 
-  public listCities() {
-    var cors_api_host = 'cors-anywhere.herokuapp.com';
-    var cors_api_url = 'https://' + cors_api_host + '/http://www.prevision-meteo.ch/services/json/list-cities';
-    fetch(cors_api_url)
-      .then(res => res.json())
-      .then(data => {
-        this.citiesList = Object.values(data);
-      })
-  };
-
-
 }
 
-export class DividerOverviewExample { }
+export class DividerOverviewExample {}

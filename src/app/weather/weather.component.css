@@ -35,9 +35,7 @@ img {
     margin-left: 5em;
 }
 
-*,
- ::after,
- ::before {
+*,  ::after, ::before {
     box-sizing: content-box;
 }
 
@@ -59,7 +57,7 @@ img {
     box-shadow: 5px 10px 5px rgb(87, 83, 83);
 }
 
-.hourly {
+.hourly-scrollbar {
     overflow-x: scroll;
     overflow-y: hidden;
     height: auto;
@@ -69,7 +67,7 @@ img {
     flex-wrap: unset;
 }
 
-.hour-by-hour {
+.hourly-box {
     border-radius: 2px solid white;
     box-shadow: 5px 10px 5px rgb(87, 83, 83);
 }

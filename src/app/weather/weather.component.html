@@ -31,8 +31,8 @@
 
     <mat-divider></mat-divider>
     <h2>Votre météo heure par heure</h2>
-    <div class="row hourly">
-        <div class="img-thumbnail hour-by-hour" *ngFor="let item of weather.fcst_day_0.hourlyData">
+    <div class="row hourly-scrollbar">
+        <div class="img-thumbnail hourly-box" *ngFor="let item of weather.fcst_day_0.hourlyData">
             <p>{{item.hour}}</p><br>
             <img class="image-hourly" src="{{ item.ICON }}" alt="image représentant le temps qu'il fait actuellement" />
             <p>{{item.CONDITION}}</p><br>
