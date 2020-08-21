@@ -69,8 +69,8 @@ export class WeatherComponent implements OnInit {
   }
 
   public preparelistCities() {
-    var cors_api_host = 'cors-anywhere.herokuapp.com';
-    var cors_api_url = 'https://' + cors_api_host + '/http://www.prevision-meteo.ch/services/json/list-cities';
+    let cors_api_host = 'cors-anywhere.herokuapp.com';
+    let cors_api_url = 'https://' + cors_api_host + '/http://www.prevision-meteo.ch/services/json/list-cities';
     fetch(cors_api_url)
       .then(res => res.json())
       .then(data => {
